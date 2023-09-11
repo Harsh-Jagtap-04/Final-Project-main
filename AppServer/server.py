@@ -82,35 +82,58 @@ def editVihirInfo():
 def deleteVihirInfo():
     return deleteVihirInfo1()
 
-@app.route('/authorizeGramPanchayat', methods=['POST'])
+# Routes for authorization steps
+@app.route('/authorizeGrampanchayatOperator', methods=['POST'])
 @cross_origin()
-def authorize_gram_panchayat():
-    return authorizeGramPanchayat1()
+def authorize_grampanchayat_operator():
+    return authorizeGrampanchayatOperator1()
 
-@app.route('/rejectGramPanchayat', methods=['POST'])
+@app.route('/rejectGrampanchayatOperator', methods=['POST'])
 @cross_origin()
-def reject_gram_panchayat():
-    return rejectGramPanchayat1()
+def reject_grampanchayat_operator():
+    return rejectGrampanchayatOperator1()
+
+@app.route('/authorizePanchayatSamitiOperator', methods=['POST'])
+@cross_origin()
+def authorize_panchayat_samiti_operator():
+    return authorizePanchayatSamitiOperator1()
+
+@app.route('/rejectPanchayatSamitiOperator', methods=['POST'])
+@cross_origin()
+def reject_panchayat_samiti_operator():
+    return rejectPanchayatSamitiOperator1()
+
+@app.route('/authorizeGrampanchayat', methods=['POST'])
+@cross_origin()
+def authorize_grampanchayat():
+    return authorizeGrampanchayat1()
+
+@app.route('/rejectGrampanchayat', methods=['POST'])
+@cross_origin()
+def reject_grampanchayat():
+    return rejectGrampanchayat1()
 
 @app.route('/authorizePanchayatSamiti', methods=['POST'])
 @cross_origin()
-def authorize_panchayat():
+def authorize_panchayat_samiti():
     return authorizePanchayatSamiti1()
 
 @app.route('/rejectPanchayatSamiti', methods=['POST'])
 @cross_origin()
-def reject_panchayat():
+def reject_panchayat_samiti():
     return rejectPanchayatSamiti1()
 
-@app.route('/authorizeZillaParishad', methods=['POST'])
+@app.route('/authorizeZillhaParishad', methods=['POST'])
 @cross_origin()
-def authorize_zillha():
+def authorize_zillha_parishad():
     return authorizeZillhaParishad1()
 
-@app.route('/rejectZillaParishad', methods=['POST'])
+@app.route('/rejectZillhaParishad', methods=['POST'])
 @cross_origin()
-def reject_zillha():
+def reject_zillha_parishad():
     return rejectZillhaParishad1()
+
+
 
 # -----------------------------VihirDocuments------------------------------------------------------------
 

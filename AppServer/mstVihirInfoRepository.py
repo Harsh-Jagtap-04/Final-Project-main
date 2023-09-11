@@ -22,12 +22,44 @@ class MstVihirInfo(SQLObject):
     intYear = IntCol()
     dtSubmittedDateTime = DateTimeCol(default=None)
     ynVihirInfoClose = BoolCol(default=False)
-    ynGramPanchayatAuthorized = BoolCol(default=False)
-    dtGramPanchayatAuthDate = DateTimeCol(default=None)
-    ynPanchayatSamitiAuthorized = BoolCol(default=False)
-    dtPanchayatSamitiAuthDate = DateTimeCol(default=None)
+
+
+    ynGrampanchayatOperatorAuthorized = BoolCol(default=False)
+    dtGrampanchayatOperatorAuthorized = DateTimeCol(default=None)
+
+    ynGrampanchayatOperatorRejection = BoolCol(default=False)
+    dtGrampanchayatOperatorRejection = DateTimeCol(default=None)
+    nCharGrampanchayatOperatorRemark = StringCol(length=500, default=None)
+
+    ynGrampanchayatAuthorisationAuthorized = BoolCol(default=False)
+    dtGrampanchayatAuthorisationAuthorized = DateTimeCol(default=None)
+
+    ynGrampanchayatAuthorisationRejection = BoolCol(default=False)
+    dtGrampanchayatAuthorisationRejection = DateTimeCol(default=None)
+    nCharGrampanchayatAuthorisationRemark = StringCol(length=500, default=None)
+
+    ynPanchayatSamitiOperatorAuthorized = BoolCol(default=False)
+    dtPanchayatSamitiOperatorAuthorized = DateTimeCol(default=None)
+
+    ynPanchayatSamitiOperatorRejection = BoolCol(default=False)
+    dtPanchayatSamitiOperatorRejection = DateTimeCol(default=None)
+    nCharPanchayatSamitiOperatorRemark = StringCol(length=500, default=None)
+
+    ynPanchayatSamitiAuthorisationAuthorized = BoolCol(default=False)
+    dtPanchayatSamitiAuthorisationAuthorized = DateTimeCol(default=None)
+
+    ynPanchayatSamitiAuthorisationRejection = BoolCol(default=False)
+    dtPanchayatSamitiAuthorisationRejection = DateTimeCol(default=None)
+    nCharPanchayatSamitiAuthorisationRemark = StringCol(length=500, default=None)
+
     ynZillhaParishadAuthorized = BoolCol(default=False)
-    dtZillhaParishadAuthDate = DateTimeCol(default=None)
+    dtZillhaParishadAuthorized = DateTimeCol(default=None)
+
+    ynZillhaParishadRejected = BoolCol(default=False)
+    dtZillhaParishadRejected = DateTimeCol(default=None)
+    nCharZillhaParishadRemark = StringCol(length=500, default=None)
+
+
     ynRejectionStatus = BoolCol(default=False)
     ncharRejectionLevel = StringCol(length=500, default=None)
     ynVihirInfoFinalised = BoolCol(default=False)
@@ -58,7 +90,12 @@ def saveVihirInfo(JsonString):
         print(JsonString)
         jstr = json.dumps(JsonString)
         obj = json.loads(jstr, object_hook=datetime_decoder)
+
         oRepository = MstVihirInfo(**obj)
+        oRepository.dtDateOfCreation = datetime.datetime.now()
+        oRepository.dtSubmittedDateTime = datetime.datetime.now()
+        print(oRepository.dtDateOfCreation)
+
         return oRepository
     except:
         print("error in MstVihirInfoRepository.saveVihirInfo", sys.exc_info()[1])
@@ -98,66 +135,105 @@ def deleteVihirInfo(JsonString):
         print("error in MstVihirInfoRepository.deleteVihirInfo", sys.exc_info()[1])
 
 
-def authorizeGramPanchayat(application_id):
+def authorizeGrampanchayatOperator(vihir_id):
     try:
-        oRepository = MstVihirInfo.get(application_id)
-        oRepository.ynGramPanchayatAuthorized = True
-        oRepository.dtPanchayatSamitiAuthDate = None
-        oRepository.dtGramPanchayatAuthDate = datetime.datetime.now()
-        return oRepository
-    except:
-        print("error in MstVihirInfoRepository.authorizeGramPanchayat", sys.exc_info()[1])
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynGrampanchayatOperatorAuthorized = True
+        vihir.dtGrampanchayatOperatorAuthorized = datetime.datetime.now()
+        return vihir
+    except Exception as e:
+        print("Error in authorizeGrampanchayatOperator:", str(e))
 
-def rejectGramPanchayat(application_id):
+def rejectGrampanchayatOperator(vihir_id, remark):
     try:
-        oRepository = MstVihirInfo.get(application_id)
-        oRepository.ynGramPanchayatAuthorized = False
-        oRepository.dtGramPanchayatAuthDate = datetime.datetime.now()
-        return oRepository
-    except:
-        print("error in MstVihirInfoRepository.rejectGramPanchayat", sys.exc_info()[1])
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynGrampanchayatOperatorRejection = True
+        vihir.dtGrampanchayatOperatorRejection = datetime.datetime.now()
+        vihir.nCharGrampanchayatOperatorRemark = remark
+        return vihir
+    except Exception as e:
+        print("Error in rejectGrampanchayatOperator:", str(e))
 
-
-def authorizePanchayatSamiti(application_id):
+def authorizeGrampanchayat(vihir_id):
     try:
-        oRepository = MstVihirInfo.get(application_id)
-        oRepository.ynPanchayatSamitiAuthorized = True
-        oRepository.dtZillhaParishadAuthDate = None
-        oRepository.dtPanchayatSamitiAuthDate  = datetime.datetime.now()
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynGrampanchayatAuthorisationAuthorized = True
+        vihir.dtGrampanchayatAuthorisationAuthorized = datetime.datetime.now()
+        return vihir
+    except Exception as e:
+        print("Error in authorizeGrampanchayat:", str(e))
 
-        return oRepository
-    except:
-        print("error in MstVihirInfoRepository.authorizeGramPanchayat", sys.exc_info()[1])
-
-def rejectPanchayatSamiti(application_id):
+def rejectGrampanchayat(vihir_id, remark):
     try:
-        oRepository = MstVihirInfo.get(application_id)
-        oRepository.ynGramPanchayatAuthorized = False
-        oRepository.dtPanchayatSamitiAuthDate  = datetime.datetime.now()
-        oRepository.ynGramPanchayatAuthorized = False  # Update to the correct field name
-        oRepository.dtGramPanchayatAuthDate = None  # Set dtPanchayatSamitiAuthDate to None
-        return oRepository
-    except:
-        print("error in MstVihirInfoRepository.rejectGramPanchayat", sys.exc_info()[1])
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynGrampanchayatAuthorisationRejection = True
+        vihir.dtGrampanchayatAuthorisationRejection = datetime.datetime.now()
+        vihir.nCharGrampanchayatAuthorisationRemark = remark
+        return vihir
+    except Exception as e:
+        print("Error in rejectGrampanchayat:", str(e))
 
-def authorizeZillhaParishad(application_id):
-    try:
-        oRepository = MstVihirInfo.get(application_id)
-        oRepository.ynZillhaParishadAuthorized = True
-        oRepository.dtZillhaParishadAuthDate = datetime.datetime.now()
-        return oRepository
-    except:
-        print("error in MstVihirInfoRepository.authorizeGramPanchayat", sys.exc_info()[1])
+# Similar functions for Panchayat Samiti Operator authorization and rejection
 
-def rejectZillhaParishad(application_id):
+def authorizePanchayatSamitiOperator(vihir_id):
     try:
-        oRepository = MstVihirInfo.get(application_id)
-        oRepository.ynZillhaParishadAuthorized = False
-        oRepository.dtPanchayatSamitiAuthDate = None
-        oRepository.dtZillhaParishadAuthDate = datetime.datetime.now()
-        return oRepository
-    except:
-        print("error in MstVihirInfoRepository.rejectGramPanchayat", sys.exc_info()[1])
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynPanchayatSamitiOperatorAuthorized = True
+        vihir.dtPanchayatSamitiOperatorAuthorized = datetime.datetime.now()
+        return vihir
+    except Exception as e:
+        print("Error in authorizePanchayatSamitiOperator:", str(e))
+
+def rejectPanchayatSamitiOperator(vihir_id, remark):
+    try:
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynPanchayatSamitiOperatorRejection = True
+        vihir.dtPanchayatSamitiOperatorRejection = datetime.datetime.now()
+        vihir.nCharPanchayatSamitiOperatorRemark = remark
+        return vihir
+    except Exception as e:
+        print("Error in rejectPanchayatSamitiOperator:", str(e))
+
+def authorizePanchayatSamiti(vihir_id):
+    try:
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynPanchayatSamitiAuthorisationAuthorized = True
+        vihir.dtPanchayatSamitiAuthorisationAuthorized = datetime.datetime.now()
+        return vihir
+    except Exception as e:
+        print("Error in authorizePanchayatSamiti:", str(e))
+
+def rejectPanchayatSamiti(vihir_id, remark):
+    try:
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynPanchayatSamitiAuthorisationRejection = True
+        vihir.dtPanchayatSamitiAuthorisationRejection = datetime.datetime.now()
+        vihir.nCharPanchayatSamitiAuthorisationRemark = remark
+        return vihir
+    except Exception as e:
+        print("Error in rejectPanchayatSamiti:", str(e))
+
+# Similar functions for Zillha Parishad authorization and rejection
+
+def authorizeZillhaParishad(vihir_id):
+    try:
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynZillhaParishadAuthorized = True
+        vihir.dtZillhaParishadAuthorized = datetime.datetime.now()
+        return vihir
+    except Exception as e:
+        print("Error in authorizeZillhaParishad:", str(e))
+
+def rejectZillhaParishad(vihir_id, remark):
+    try:
+        vihir = MstVihirInfo.get(vihir_id)
+        vihir.ynZillhaParishadRejected = True
+        vihir.dtZillhaParishadRejected = datetime.datetime.now()
+        vihir.nCharZillhaParishadRemark = remark
+        return vihir
+    except Exception as e:
+        print("Error in rejectZillhaParishad:", str(e))
+
 
 
 sqlhub.processConnection = connectionForURI('sqlite:./FormSystem.db')

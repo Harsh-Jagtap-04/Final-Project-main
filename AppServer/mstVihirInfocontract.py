@@ -40,16 +40,43 @@ def deleteVihirInfo1():
     ret = deleteVihirInfo(JsonString)
     return to_json(ret, ret.id)
 
-def authorizeGramPanchayat1():
+def authorizeGrampanchayatOperator1():
     JsonString = request.get_json()
     application_id = JsonString['id']
-    ret = authorizeGramPanchayat(application_id)
+    ret = authorizeGrampanchayatOperator(application_id)
     return to_json(ret, ret.id)
 
-def rejectGramPanchayat1():
+def rejectGrampanchayatOperator1():
     JsonString = request.get_json()
     application_id = JsonString['id']
-    ret = rejectGramPanchayat(application_id)
+    remark = JsonString.get('remark', None)  # Optional remark
+    ret = rejectGrampanchayatOperator(application_id, remark)
+    return to_json(ret, ret.id)
+
+def authorizePanchayatSamitiOperator1():
+    JsonString = request.get_json()
+    application_id = JsonString['id']
+    ret = authorizePanchayatSamitiOperator(application_id)
+    return to_json(ret, ret.id)
+
+def rejectPanchayatSamitiOperator1():
+    JsonString = request.get_json()
+    application_id = JsonString['id']
+    remark = JsonString.get('remark', None)  # Optional remark
+    ret = rejectPanchayatSamitiOperator(application_id, remark)
+    return to_json(ret, ret.id)
+
+def authorizeGrampanchayat1():
+    JsonString = request.get_json()
+    application_id = JsonString['id']
+    ret = authorizeGrampanchayat(application_id)
+    return to_json(ret, ret.id)
+
+def rejectGrampanchayat1():
+    JsonString = request.get_json()
+    application_id = JsonString['id']
+    remark = JsonString.get('remark', None)  # Optional remark
+    ret = rejectGrampanchayat(application_id, remark)
     return to_json(ret, ret.id)
 
 def authorizePanchayatSamiti1():
@@ -61,7 +88,8 @@ def authorizePanchayatSamiti1():
 def rejectPanchayatSamiti1():
     JsonString = request.get_json()
     application_id = JsonString['id']
-    ret = rejectPanchayatSamiti(application_id)
+    remark = JsonString.get('remark', None)  # Optional remark
+    ret = rejectPanchayatSamiti(application_id, remark)
     return to_json(ret, ret.id)
 
 def authorizeZillhaParishad1():
@@ -73,5 +101,6 @@ def authorizeZillhaParishad1():
 def rejectZillhaParishad1():
     JsonString = request.get_json()
     application_id = JsonString['id']
-    ret = rejectZillhaParishad(application_id)
+    remark = JsonString.get('remark', None)  # Optional remark
+    ret = rejectZillhaParishad(application_id, remark)
     return to_json(ret, ret.id)

@@ -16,9 +16,17 @@ class MstAdmin(SQLObject):
     ncharEmail = StringCol(length=100, default=None)
     ncharDesignation = StringCol(length=100, default=None)
     ncharDepartment = StringCol(length=100, default=None)
-    bGramPanchayatAuthority = BoolCol(default=False)
-    bPanchayatSamitiAuthority = BoolCol(default=False)
-    bZillaParishadAuthority = BoolCol(default=False)
+
+    ncharZillhaParishad = StringCol(length=100, default=None)
+    ncharPanchayatSamiti = StringCol(length=100, default=None)
+    ncharGramPanchayat = StringCol(length=100, default=None)
+
+    bGrampanchayatOperatorAuthoraties = BoolCol(default=False)
+    bGrampanchayatAuthorisationAuthorities = BoolCol(default=False)
+    bPanchayatSamitiOperatorAuthoraties = BoolCol(default=False)
+    bPanchayatSamitiAuthorisationAuthorities = BoolCol(default=False)
+    bZillhaParishadAuthorities = BoolCol(default=False)
+
     dtDateOfCreation = DateTimeCol(default=datetime.datetime.now())
     dtDateOfModification = DateTimeCol(default=None)
     ynDeleted = BoolCol(default=False)
@@ -59,9 +67,14 @@ def editAdmin(JsonString1):
         oMstAdminRepository.ncharEmail = JsonString['ncharEmail']
         oMstAdminRepository.ncharDesignation = JsonString['ncharDesignation']
         oMstAdminRepository.ncharDepartment = JsonString['ncharDepartment']
-        oMstAdminRepository.bGramPanchayatAuthority = JsonString['bGramPanchayatAuthority']
-        oMstAdminRepository.bPanchayatSamitiAuthority = JsonString['bPanchayatSamitiAuthority']
-        oMstAdminRepository.bZillaParishadAuthority = JsonString['bZillaParishadAuthority']
+        oMstAdminRepository.ncharZillhaParishad = JsonString['ncharZillhaParishad']
+        oMstAdminRepository.ncharPanchayatSamiti = JsonString['ncharPanchayatSamiti']
+        oMstAdminRepository.ncharGramPanchayat = JsonString['ncharGramPanchayat']
+        oMstAdminRepository.bGrampanchayatOperatorAuthoraties = JsonString['bGrampanchayatOperatorAuthoraties']
+        oMstAdminRepository.bGrampanchayatAuthorisationAuthorities = JsonString['bGrampanchayatAuthorisationAuthorities']
+        oMstAdminRepository.bPanchayatSamitiOperatorAuthoraties = JsonString['bPanchayatSamitiOperatorAuthoraties']
+        oMstAdminRepository.bPanchayatSamitiAuthorisationAuthorities = JsonString['bPanchayatSamitiAuthorisationAuthorities']
+        oMstAdminRepository.bZillhaParishadAuthorities = JsonString['bZillhaParishadAuthorities']
         oMstAdminRepository.dtDateOfModification = datetime.datetime.now()
         return oMstAdminRepository
     except:
@@ -75,23 +88,7 @@ def deleteAdmin(JsonString):
         return oRepository
     except:
         print("error in MstAdminRepository.deleteAdmin", sys.exc_info()[1])
-"""
-def checkAdminEmailExists(email):
-    try:
-        # Use a query to check if the email exists in the database
-        exists_query = MstAdmin.selectBy(ncharEmail=email)
 
-        if exists_query.count() > 0:
-            # If the email exists, get the first matching admin's ID
-            admin_id = exists_query[0].id  # Assuming 'id' is the column name for the admin ID
-            return True, admin_id
-
-        return False, None  # Return False if email doesn't exist
-
-    except Exception as e:
-        print("Error in MstRegisterUserRepository.checkEmailExists:", str(e))
-        return False, None
-"""
 def checkAdminEmailExists(email):
     try:
         # Use a query to check if the email exists in the database
@@ -110,9 +107,14 @@ def checkAdminEmailExists(email):
                 "ncharEmail": admin.ncharEmail,
                 "ncharDesignation": admin.ncharDesignation,
                 "ncharDepartment": admin.ncharDepartment,
-                "bGramPanchayatAuthority": admin.bGramPanchayatAuthority,
-                "bPanchayatSamitiAuthority": admin.bPanchayatSamitiAuthority,
-                "bZillaParishadAuthority": admin.bZillaParishadAuthority,
+                "ncharZillhaParishad": admin.ncharZillhaParishad,
+                "ncharPanchayatSamiti": admin.ncharPanchayatSamiti,
+                "ncharGramPanchayat": admin.ncharGramPanchayat,
+                "bGrampanchayatOperatorAuthoraties": admin.bGrampanchayatOperatorAuthoraties,
+                "bGrampanchayatAuthorisationAuthorities": admin.bGrampanchayatAuthorisationAuthorities,
+                "bPanchayatSamitiOperatorAuthoraties": admin.bPanchayatSamitiOperatorAuthoraties,
+                "bPanchayatSamitiAuthorisationAuthorities": admin.bPanchayatSamitiAuthorisationAuthorities,
+                "bZillhaParishadAuthorities": admin.bZillhaParishadAuthorities
             }
             return True, admin_data
 
