@@ -31,8 +31,7 @@
               <td>{{ application.ncharLastName }}</td>
               <td>{{ application.ncharFormNumber }}</td>
               <td>
-                <button class="btn btn-sm btn-info rounded text-white px-3 me-1" @click="selectOption('MultiStepForm')">View</button>
-                <button class="btn btn-sm btn-primary rounded text-white px-3 me-1" @click="selectOption('MultiStepForm')">Edit</button>
+                <button class="btn btn-sm btn-info rounded text-white px-3 me-1" @click="selectOption('MultiStepForm',application.id)">View</button>
                 <button class="btn btn-sm btn-danger rounded text-white px-3 me-1" @click="deleteApplication(application.id)">Delete</button>
                 <!-- Check if dtGramPanchayatAuthDate is present and ynGramPanchayatAuthorized is true -->
                 <template v-if="application.dtGramPanchayatAuthDate && application.ynGramPanchayatAuthorized">
@@ -154,8 +153,9 @@ export default {
         console.error('Error rejecting application:', error);
       });
   },
-    selectOption(option) {
+    selectOption(option,id=0) {
       this.selectedOption = option;
+      localStorage.setItem('showForm',id);
     },
     reloadApplicationData() {
       this.fetchApplications();
@@ -166,10 +166,23 @@ export default {
         title: 'Do you want to save the changes?',
         showCancelButton: true,
         confirmButtonText: 'Delete',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire('Saved!' + applicationId, '', 'success')
-        } else if (result.isDenied) {
+      }).then((result) =>
+      {
+        if (result.isConfirmed)
+        {
+          axios.post('http://127.0.0.1:5555/deleteVihirInfo', JSON.stringify({id:applicationId}), { headers: { 'Content-Type': 'application/json' } })
+          .then(response =>
+            {
+              const deletedApplicationId = response.data.id;
+              Swal.fire('Deleted', 'Application deleted successfully.', 'success');
+              this.applications = this.applications.filter(application => application.id !== applicationId);
+              this.reloadApplicationData();
+              console.log(deletedApplicationId);
+            })
+            .catch(error => Swal.fire('Error deleting application:' + error, '', 'success'));          
+        }
+        else if (result.isDenied)
+        {
           Swal.fire('Changes are not saved', '', 'info')
         }
       })

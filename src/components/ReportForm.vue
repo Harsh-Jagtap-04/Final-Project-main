@@ -137,7 +137,8 @@ export default {
         blobJobCard: null,
         blobAdditionalLandAffidavit: null,
         blobWaterUsageAgreement: null
-      }
+      },
+      formID       : (localStorage.getItem('showForm')) ? JSON.parse(localStorage.getItem('showForm')) : alert('Invalid Application ID.'),
     };
   },
   methods: {
@@ -165,6 +166,10 @@ export default {
         console.error('Error generating PDF:', error);
       }
     },
+  },
+  mounted()
+  {
+
   },
 };
 </script>
