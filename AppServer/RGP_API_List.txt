@@ -1,0 +1,1255 @@
+
+---------------MstCompany---------------------------------------------------------
+
+http://127.0.0.1:5000/GetCompany
+
+http://127.0.0.1:5000/GetCompanyById
+{"id": 1}
+
+http://127.0.0.1:5000/saveCompany
+{
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncharCompanyAddress": null,
+    "ncharCompanyName": "test",
+    "ncharDescription": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editCompany
+{
+    "id":2,
+    "ncharCompanyAddress": null,
+    "ncharCompanyName": "test1",
+    "ncharDescription": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/deleteCompany
+{"id": 2}
+
+-------------------------MstBranch------------------------------------------------------
+
+http://127.0.0.1:5000/GetBranch
+
+ http://127.0.0.1:5000/GetBranchById
+{"id": 1}
+
+http://65.0.7.224:5555/GetBranchByCompanyId
+{
+    "CompanyId": 1
+}
+
+http://127.0.0.1:5000/saveBranch
+{
+    "CompanyId": 1,
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncharBranchName": "Pune",
+    "ncharContact": null,
+    "ncharDescription": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editBranch
+{
+    "CompanyId": 1,
+     "id": 2,
+    "ncharBranchName": "Nagar",
+    "ncharContact": null,
+    "ncharDescription": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/deleteBranch
+{
+    "id": 2
+}
+
+------------------------MstDepartment----------------------------------------------
+
+http://127.0.0.1:5000/GetDepartment
+
+http://127.0.0.1:5000/GetDepartmentById
+{"id": 1}
+
+http://127.0.0.1:5555/GetDepartmentByBranchId
+{"BranchId": 1}
+
+http://127.0.0.1:5000/saveDepartment
+{"BranchId": 1, "ncharDepatrmentName": "Store", "ncharDescription": null, "dtDateOfCreation": "15-06-2021 13:10:10",
+"dtDateOfModification": null, "ynDeleted": false}
+
+http://127.0.0.1:5000/editDepartment
+{"id":2,"BranchId": 1, "ncharDepatrmentName": "Store1", "ncharDescription": null}
+
+http://127.0.0.1:5000/deleteDepartment
+{"id":2}
+
+------------------------MstDesignation-------------------------------------------------
+
+http://127.0.0.1:5000/GetDesignation
+
+http://127.0.0.1:5000/GetDesignationById
+{"id": 1}
+
+http://127.0.0.1:5000/saveDesignation
+{
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncharDescription": null,
+    "ncharDesignationName": "Worker",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editDesignation
+{
+    "id":2,
+    "ncharDescription": null,
+    "ncharDesignationName": "Worker1",
+    "ynDeleted": false
+}
+
+--------------------------------MstUser---------------------------------------------
+
+http://127.0.0.1:5000/GetUser
+
+http://127.0.0.1:5000/GetUserById
+{"id": 1}
+
+http://127.0.0.1:5555/GetUserLogin
+{
+    "ncharLoginName": "User",
+    "ncharPassword": "UserPassword"
+}
+
+
+http://127.0.0.1:5000/saveUser
+{
+    "BranchId": 1,
+    "CompanyId": 1,
+    "DepartmentId": 1,
+    "DesignationId": 1,
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncharContact": null,
+    "ncharDescription": null,
+    "ncharEmail": "User1@email.com",
+    "ncharEmployeeCode": "01",
+    "ncharLoginName": "User1",
+    "ncharPassword": "UserPassword1",
+    "ncharUserName": "Ajay",
+    "ncharUserRole": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editUser
+{
+    "id": 2,
+    "BranchId": 1,
+    "CompanyId": 1,
+    "DepartmentId": 1,
+    "DesignationId": 1,
+    "ncharContact": null,
+    "ncharDescription": null,
+    "ncharEmail": "User1@email.com",
+    "ncharEmployeeCode": "01",
+    "ncharLoginName": "User1",
+    "ncharPassword": "UserPassword1",
+    "ncharUserName": "Ajay",
+    "ncharUserRole": null
+}
+
+http://127.0.0.1:5000/deleteUser
+{
+    "id": 2
+}
+
+-----------------------------------MstVendor--------------------------------------------
+
+http://127.0.0.1:5000/GetVendor
+
+http://127.0.0.1:5000/GetVendorById
+{"id": 1}
+
+http://127.0.0.1:5000/saveVendor
+{
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+     "ncharAddress": "Vendor2 Address",
+    "ncharCode": "002",
+    "ncharCompany": "Vendor2 Company",
+    "ncharCompanyAddress": "Vendo2r Company Address",
+    "ncharContact": "123456",
+    "ncharDescription": null,
+    "ncharEmail": "vendor2@email.com",
+    "ncharName": "Vendor2",
+    "ynBlacklisted": false,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editVendor
+{
+    "id": 2,
+    "ncharAddress": "Vendor2 Address",
+    "ncharCode": "002",
+    "ncharCompany": "Vendor2 Company",
+    "ncharCompanyAddress": "Vendo2r Company Address",
+    "ncharContact": "123456",
+    "ncharDescription": null,
+    "ncharEmail": "vendor2@email.com",
+    "ncharName": "Vendor2",
+    "ynBlacklisted": false
+}
+
+http://127.0.0.1:5000/deleteVendor
+{
+    "id": 2
+}
+
+--------------------------GatePassAuthorisation-----------------------------------
+
+http://127.0.0.1:5000/GetGatePassAuthorisation
+
+http://127.0.0.1:5555/GetAuthorisedGetPass
+
+http://111.125.229.162:5000/GetPendingGetPassAuth
+
+http://127.0.0.1:5000/GetGatePassAuthorisationById
+{"id": 1}
+
+http://127.0.0.1:5555/GetGatePassAuthorisationByGatePassId
+{
+  "GatePassId":1
+}
+
+http://127.0.0.1:5555/GetAuthorisedGetPassAuthByUserId
+{
+  "UserId":1
+}
+
+http://127.0.0.1:5555/GetPendingGetPassAuthByUserId
+{
+  "UserId":1
+}
+
+http://127.0.0.1:5000/saveGatePassAuthorisation
+{
+    "DepartmentId": 1,
+    "GatePassId": 1,
+    "UserId": 2,
+    "dtDate":"15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncharDescription": null,
+    "ncharGatePassNumber": "11",
+    "ncharRemark": null,
+    "ynAuthorisationStatus": false,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editGatePassAuthorisation
+{
+    "id": 2,
+    "DepartmentId": 1,
+    "GatePassId": 2,
+    "UserId": 2,
+    "dtDate":"15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncharDescription": null,
+    "ncharGatePassNumber": "11",
+    "ncharRemark": null,
+    "ynAuthorisationStatus": false
+}
+
+
+
+http://127.0.0.1:5000/editGatePassAuthorisationById1
+{
+    "id": 2,
+    "ynAuthorisationStatus": false
+}
+
+
+http://127.0.0.1:5000/deleteGatePassAuthorisation
+{
+    "id": 2
+}
+
+http://127.0.0.1:5555/UpdateGatePassInwardStatusByGatePassId
+{
+    
+    "GatePassId": 26,
+    "intInwardStatus": 3,
+    "ncharDescription":"Rejected because of No Stock"
+}
+-----------------------------------TblGatePassInword------------------------------------------
+
+http://127.0.0.1:5000/GetGatePassInword
+
+http://127.0.0.1:5000/GetGatePassInwordById
+{"id": 1}
+
+http://127.0.0.1:5000/saveGatePassInword
+{
+    "GatePassId":2,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "dtTin": "15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharDriverRecipentName": "Name",
+    "ncharGatePassNumber": "1",
+    "ncharVehNo": "123",
+    "ynDeleted": false,
+    "intInwardStatus": 1
+}
+
+http://127.0.0.1:5000/editGatePassInword
+{
+    "id": 1,
+    "GatePassId":1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtTin": "15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharDriverRecipentName": "Name",
+    "ncharGatePassNumber": "2",
+    "ncharVehNo": "123",
+    "intInwardStatus": 1
+}
+
+
+http://127.0.0.1:5000/deleteGatePassInword
+{
+    "id": 2
+}
+
+------------------------TblGatePassMaterialDetails-----------------------------------
+
+http://127.0.0.1:5000/GetGatePassMaterialDetails
+
+http://127.0.0.1:5000/GetGatePassMaterialDetailsById
+{"id": 1}
+
+http://127.0.0.1:5555/GetGatePassMaterialDetailsByGatePassId
+{
+  "GatePassId":1
+}
+
+http://127.0.0.1:5000/saveGatePassMaterialDetails
+{
+    "GatePassId": 1,
+    "decInwordBalanceQty": 2.0,
+    "decInwordDispatchedQty": 2.0,
+    "decOutwordApprovedQuantity": 2.0,
+    "decOutwordBalanceQty": 2.0,
+    "decOutwordDispatchedQty": 2.0,
+    "decQuantity": 2.0,
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "dtExptReturnDate": "15-06-2021 13:10:10",
+    "dtInwordRecivedDate": "15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharGatePassNumber": "1",
+    "ncharInwordRemark": "Remart1",
+    "ncharMaterialDescription": "MatrialDeac1",
+    "ncharMaterialName": "MaterialName1",
+    "ncharOutwordRemark": null,
+    "ncharPricing": "100",
+    "ynDeleted": false,
+    "ynInwordVerified": true,
+    "ynOutwordVerified": false,
+    "ynReturnable": true
+}
+
+http://127.0.0.1:5000/editGatePassMaterialDetails
+{
+    "id": 2,
+    "GatePassId": 1,
+    "decInwordBalanceQty": 2.0,
+    "decInwordDispatchedQty": 2.0,
+    "decOutwordApprovedQuantity": 2.0,
+    "decOutwordBalanceQty": 2.0,
+    "decOutwordDispatchedQty": 2.0,
+    "decQuantity": 2.0,
+    "dtExptReturnDate": "15-06-2021 13:10:10",
+    "dtInwordRecivedDate": "15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharGatePassNumber": "1",
+    "ncharInwordRemark": "Remart1",
+    "ncharMaterialDescription": "MatrialDeac1",
+    "ncharMaterialName": "MaterialName1",
+    "ncharOutwordRemark": null,
+    "ncharPricing": "100",
+    "ynInwordVerified": true,
+    "ynOutwordVerified": false,
+    "ynReturnable": true
+}
+
+http://127.0.0.1:5000/deleteGatePassMaterialDetails
+{
+    "id": 2
+}
+
+--------------------------------------TblGatePassOutword-------------------------------------
+
+http://127.0.0.1:5000/GetGatePassOutword
+
+http://127.0.0.1:5000/GetGatePassOutwordById
+{"id": 1}
+
+http://127.0.0.1:5000/saveGatePassOutword
+{
+    "GatePassId": 2,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "dtTout":"15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharDriverRecipentName": "Name",
+    "ncharGatePassNumber": "1",
+    "ncharVehNo": "123",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5000/editGatePassOutword
+{
+    "id": 2,
+    "GatePassId": 2,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtTout":"15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharDriverRecipentName": "Name",
+    "ncharGatePassNumber": "1",
+    "ncharVehNo": "123"
+ }
+
+http://127.0.0.1:5000/deleteGatePassOutword
+{
+    "id": 2
+}
+
+http://127.0.0.1:5555/GetGatePassOutwordByGatePassId
+{
+    "GatePassId": 1
+}
+
+----------------------------TblGatePass----------------------------------------------------
+http://111.125.229.162:5000/GetGatePassByBranchId
+{
+    "BranchId": 1
+}
+
+http://127.0.0.1:5555/GetDispatchedForInwardGatePassByBranch
+{
+    "BranchId": 2
+}
+
+http://127.0.0.1:5555/GetInwardGatePassByBranch
+{
+    "BranchId": 2,
+    "intInwardStatus":0
+}
+
+http://127.0.0.1:5555/GetDispatchedGatePassByBranch
+{
+    "BranchId": 2
+}
+http://127.0.0.1:5555/GetGatePassToBeDispatchedByBranch
+{
+    "BranchId": 2
+}
+
+http://127.0.0.1:5000/GetGatePass
+
+http://127.0.0.1:5000/GetGatePassToBeDispatched
+
+http://127.0.0.1:5000/GetDispatchedGatePass
+
+http://111.125.229.162:5000/GetPendingGetPass
+
+http://111.125.229.162:5000/GetDispatchedForInwardGatePass
+
+http://127.0.0.1:5000/GetGatePassById
+{"id": 1}
+
+http://127.0.0.1:5555/SearchInwardStatusGatePassByCreatorId
+{
+    "UserId": 1,
+    "intInwardStatus": 0
+  
+}
+
+http://127.0.0.1:5000/saveGatePass
+{
+    "UserId": 1,
+    "VendorId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfIssue":"15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "dtExptReturnDate": "15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharGatePassNumber": "1",
+    "ncharJobWorkNumber": "111",
+    "ynAuthorisationStatus": false,
+    "ynDeleted": false,
+    "ynDispatchedStatus": false,
+    "ynFinalSubmitted": false,
+    "ynJobWork": false,
+    "ynReturnable": false,
+    "ncharRefGatePassNumber": "2"
+}
+
+http://127.0.0.1:5000/editGatePass
+{
+    "id": 2,
+    "UserId": 1,
+    "VendorId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfIssue":"15-06-2021 13:10:10",
+    "dtExptReturnDate": "15-06-2021 13:10:10",
+    "ncharDescription": null,
+    "ncharGatePassNumber": "1",
+    "ncharJobWorkNumber": "111",
+    "ynAuthorisationStatus": false,
+    "ynDispatchedStatus": false,
+    "intInwardStatus":0,
+    "ynFinalSubmitted": false,
+    "ynJobWork": false,
+    "ynReturnable": false,
+    "ncharRefGatePassNumber": "2"
+}
+
+http://127.0.0.1:5000/deleteGatePass
+{
+    "id": 2
+}
+
+http://127.0.0.1:5555/GetDispatchedGetPassByCreatorId
+{
+  "UserId":1
+}
+http://127.0.0.1:5555/GetPendingDispatchedGetPassByCreatorId
+{
+  "UserId":1
+}
+http://127.0.0.1:5555/GetPendingGetPassByCreatorId
+{
+  "UserId":1
+}
+http://127.0.0.1:5555/GetAuthorisedGetPassByCreatorId
+{
+  "UserId":1
+}
+
+http://127.0.0.1:5555/SearchGatePassByGatePassNumber
+{
+  "ncharGatePassNumber":"1"
+}
+
+http://127.0.0.1:5555/GetGatePassByUserId
+{
+  "UserId":1
+}
+
+http://127.0.0.1:5555/SearchGatePassByVendorId
+{
+  "VendorId":1
+}
+
+http://127.0.0.1:5555/SendGatePassMail
+{
+  "GatePassId":1
+}
+
+http://127.0.0.1:5555/SendNewGatePassAlertMail
+{
+  "GatePassId":1
+}
+
+http://127.0.0.1:5555/SearchDueDateByDateTime
+{
+  "dtExptReturnDate": "15-06-2021 13:10:10"
+}
+
+http://111.125.229.162:5000/SearchGatePassByDateTime
+{
+    "Date1":"16-04-2021 12:10:10",
+    "Date2":"16-10-2021 14:30:10"
+}
+
+http://127.0.0.1:5555/SearchInwardStatusGatePass
+{
+    "intInwardStatus": 0
+}
+
+http://111.125.229.162:5000/GetDueDateReport
+
+{
+    "fromdate": "30-09-2021 13:10:10"
+}
+
+http://111.125.229.162:5000/SearchDynamic
+
+{
+    "fromdate": "30-09-2020 13:10:10",
+    "todate": "30-09-2021 13:10:10",
+    "nchar_gate_pass_number": "1",
+    "dt_expt_return_date":"15-06-2021 13:10:10",
+    "vendor_id":1,
+    "user_id":1
+}
+
+http://111.125.229.162:5000/SearchDynamicByBranch
+{
+  
+    "yn_dispatched_status": 0,
+    "branch_id": 1
+}
+
+http://127.0.0.1:5555/CreateGatePassNumber
+
+
+-------------------------------------------TblStore---------------------------------------
+
+http://127.0.0.1:5000/GetStore
+
+http://127.0.0.1:5000/GetStoreById
+{"id": 1}
+
+http://127.0.0.1:5000/saveStore
+{
+    "GatePassId": 1,
+    "GatePassMaterialId": 1,
+    "InwardStoreUserId": 1,
+    "OutwardStoreUserId": 1,
+    "decInwardBalanceQty": 4.0,
+    "decInwardReceivedQty": 3.0,
+    "decOutwardBalanceQty": 7.0,
+    "decOutwardDispatchedQty": 10.0,
+    "dtInwardDateOfCreation": "15-06-2021 13:10:10",
+    "dtInwardDateOfModification": null,
+    "dtInwardRecivedDate": null,
+    "dtOutwardDate": null,
+    "dtOutwardDateOfCreation": "15-06-2021 13:10:10",
+    "dtOutwardDateOfModification": null,
+    "ncharGatePassNumber": "2",
+    "ncharInwardDescription": "Des",
+    "ncharMaterialName": "Test",
+    "ncharOutwardDescription": "Desc",
+    "ynDeleted": false,
+    "ynInwardVerified": true,
+    "ynOutwardVerified": true
+}
+
+http://127.0.0.1:5000/editStore
+{
+    "id": 2,
+    "GatePassId": 1,
+    "GatePassMaterialId": 1,
+    "InwardStoreUserId": 1,
+    "OutwardStoreUserId": 1,
+    "decInwardBalanceQty": 4.0,
+    "decInwardReceivedQty": 3.0,
+    "decOutwardBalanceQty": 7.0,
+    "decOutwardDispatchedQty": 10.0,
+    "dtInwardDateOfCreation": "15-06-2021 13:10:10",
+    "dtInwardDateOfModification": null,
+    "dtInwardRecivedDate": null,
+    "dtOutwardDate": null,
+    "dtOutwardDateOfCreation": "15-06-2021 13:10:10",
+    "dtOutwardDateOfModification": null,
+    "ncharGatePassNumber": "2",
+    "ncharInwardDescription": "Des",
+    "ncharMaterialName": "Test",
+    "ncharOutwardDescription": "Desc",
+    "ynDeleted": false,
+    "ynInwardVerified": true,
+    "ynOutwardVerified": true
+}
+
+http://127.0.0.1:5000/deleteStore
+{
+    "id": 2
+}
+
+http://127.0.0.1:5000/GetStoreByGatePassId
+{
+    "GatePassId": 2
+}
+
+http://127.0.0.1:5555/CreateStoreByGatePassId
+{
+    "GatePassId": 2
+}
+-----------------------------tblOutwordRegister---------------------------------------------------------
+
+http://127.0.0.1:5555/GetOutWordRegister
+
+http://127.0.0.1:5555/GetTblOutWordRegisterById
+{"id": 1}
+
+http://127.0.0.1:5555/saveOutWordRegister
+{
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncahrGrossWt": "12",
+    "ncharChallanNo": "2",
+    "ncharDescription": null,
+    "ncharDescriptionOfStores": "DescStore",
+    "ncharDriverName": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "12",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/22",
+    "ncharTareWt": "11",
+    "ncharVehNo": "1234",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editOutWordRegister
+{
+    "id": 2,
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "ncahrGrossWt": "12",
+    "ncharChallanNo": "2",
+    "ncharDescription": null,
+    "ncharDescriptionOfStores": "DescStore",
+    "ncharDriverName": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "12",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/22",
+    "ncharTareWt": "11",
+    "ncharVehNo": "1234"
+}
+
+http://127.0.0.1:5555/deleteOutWordRegister
+{
+    "id": 2
+}
+
+----------------------------------tblGatePassOutRegister-------------------------------------------------------
+
+http://127.0.0.1:5555/GetGatePassOutRegister
+
+http://127.0.0.1:5555/GetGatePassOutRegisterById
+{"id": 1}
+
+http://127.0.0.1:5555/saveGatePassOutRegister
+{
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDateIn": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "dtDateOut": "15-06-2021 13:10:10",
+    "ncharChallanNoIn": "1",
+    "ncharChallanNoOut": "1",
+    "ncharDescription": null,
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverNameIn": "DriverName",
+    "ncharDriverNameOut": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharQtyIn": "12",
+    "ncharQtyOut": "12",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn": "12",
+    "ncharTOut": null,
+    "ncharVehNoIn": "1234",
+    "ncharVehNoOut": "vech",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editGatePassOutRegister
+{
+    "id": 2,
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDateIn": "15-06-2021 13:10:10",
+    "dtDateOut": "15-06-2021 13:10:10",
+    "ncharChallanNoIn": "1",
+    "ncharChallanNoOut": "1",
+    "ncharDescription": null,
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverNameIn": "DriverName",
+    "ncharDriverNameOut": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharQtyIn": "12",
+    "ncharQtyOut": "12",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn": "12",
+    "ncharTOut": null,
+    "ncharVehNoIn": "1234",
+    "ncharVehNoOut": "vech"
+}
+
+http://127.0.0.1:5555/deleteGatePassOutRegister
+{
+    "id": 2
+}
+
+--------------------------------tblPoMiscInInwardRegister-------------------------------------------------
+
+http://127.0.0.1:5555/GetPoMiscInInwardRegister
+
+http://127.0.0.1:5555/GetPoMiscInInwardRegisterById
+{"id": 1}
+
+http://127.0.0.1:5555/savePoMiscInInwardRegister
+{
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncahrGrossWt": "12",
+    "ncharChallanNo": "1",
+    "ncharDescription": null,
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverName": "DriverName",
+    "ncharGapePassNo": "1",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "12",
+    "ncharPoNoPrNo": "121",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/22",
+    "ncharTareWt": "13",
+    "ncharVehNo": "1234",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editPoMiscInInwardRegister
+{
+    "id": 2,
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "ncahrGrossWt": "12",
+    "ncharChallanNo": "1",
+    "ncharDescription": null,
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverName": "DriverName",
+    "ncharGapePassNo": "1",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "12",
+    "ncharPoNoPrNo": "121",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/22",
+    "ncharTareWt": "13",
+    "ncharVehNo": "1234"
+}
+
+http://127.0.0.1:5555/deletePoMiscInInwardRegister
+{
+    "id": 2
+}
+
+-----------------------------------------tblInRegister----------------------------------------------------
+
+http://127.0.0.1:5555/GetInRegister
+
+http://127.0.0.1:5555/GetInRegisterById
+{"id": 1}
+
+http://127.0.0.1:5555/saveInRegister
+{
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncahrGrossWt": "11",
+    "ncharChallanNo": "1",
+    "ncharDescription": "Desc",
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverName": "DriverName",
+    "ncharGapePassNo": "1",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "11",
+    "ncharPoNoPrNo": "121",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/11",
+    "ncharTareWt": "12",
+    "ncharVehNo": "1234",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editInRegister
+{
+    "id": 2,
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "ncahrGrossWt": "11",
+    "ncharChallanNo": "1",
+    "ncharDescription": "Desc",
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverName": "DriverName",
+    "ncharGapePassNo": "1",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "11",
+    "ncharPoNoPrNo": "121",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/11",
+    "ncharTareWt": "12",
+    "ncharVehNo": "1234"
+}
+
+http://127.0.0.1:5555/deleteInRegister
+{
+    "id": 2
+}
+
+-------------------------------------------tblNonReturnableRegister-------------------------------------------
+
+http://127.0.0.1:5555/GetNonReturnableRegister
+
+http://127.0.0.1:5555/GetNonReturnableRegisterById
+{"id": 1}
+
+http://127.0.0.1:5555/saveNonReturnableRegister
+{
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "ncahrGrossWt": "11",
+    "ncharChallanNo": "1",
+    "ncharDescription": "Desc",
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverName": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "11",
+    "ncharPoNoPrNo": "121",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/22",
+    "ncharTareWt": "12",
+    "ncharVehNo": "1234",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editNonReturnableRegister
+{
+    "id": 2,
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDate": "15-06-2021 13:10:10",
+    "ncahrGrossWt": "11",
+    "ncharChallanNo": "1",
+    "ncharDescription": "Desc",
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverName": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharNetWt": "11",
+    "ncharPoNoPrNo": "121",
+    "ncharQty": "1",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn_Out": "11/22",
+    "ncharTareWt": "12",
+    "ncharVehNo": "1234"
+}
+
+http://127.0.0.1:5555/deleteNonReturnableRegister
+{
+    "id": 2
+}
+
+------------------------tblReturnableExciseRegister--------------------------------------------------------
+
+http://127.0.0.1:5555/GetReturnableExciseRegister
+
+http://127.0.0.1:5555/GetReturnableExciseRegisterById
+{"id": 1}
+
+http://127.0.0.1:5555/saveReturnableExciseRegister
+{
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDateIn": "15-06-2021 13:10:10",
+    "dtDateOfCreation": "15-06-2021 13:10:10",
+    "dtDateOfModification": null,
+    "dtDateOut": "15-06-2021 13:10:10",
+    "ncharChallanNoIn": "1",
+    "ncharChallanNoOut": "1",
+    "ncharDescription": "Desc",
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverNameIn": "DriverName",
+    "ncharDriverNameOut": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharQtyIn": "11",
+    "ncharQtyOut": "12",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn": "11/22",
+    "ncharTOut": "11/22",
+    "ncharVehNoIn": "1234",
+    "ncharVehNoOut": "1234",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editReturnableExciseRegister
+{   "id": 2,
+    "GatePassId": 1,
+    "SecurityUserId": 1,
+    "dtDateIn": "15-06-2021 13:10:10",
+    "dtDateOut": "15-06-2021 13:10:10",
+    "ncharChallanNoIn": "1",
+    "ncharChallanNoOut": "1",
+    "ncharDescription": "Desc",
+    "ncharDescriptionOfStores": "Store",
+    "ncharDriverNameIn": "DriverName",
+    "ncharDriverNameOut": "DriverName",
+    "ncharNameOfParty": "PartyName",
+    "ncharQtyIn": "11",
+    "ncharQtyOut": "12",
+    "ncharRemark": "Remark",
+    "ncharSrNo": "1",
+    "ncharTIn": "11/22",
+    "ncharTOut": "11/22",
+    "ncharVehNoIn": "1234",
+    "ncharVehNoOut": "1234"
+}
+
+http://127.0.0.1:5555/deleteReturnableExciseRegister
+{   "id": 2
+}
+
+# ------------------------tblJobWork--------------------------------------------------------
+
+http://127.0.0.1:5555/GetTblJobWork
+
+http://127.0.0.1:5555/GetTblJobWorkById
+{
+    "id": 1
+}
+
+http://127.0.0.1:5555/saveTblJobWork
+{
+    "GatePassId": 2,
+    "dtChallanDate": null,
+    "dtDateOfModification": null,
+    "dtPreparationDateTime": null,
+    "intAuthorisedUser": 1,
+    "ncharChallanNo": "5",
+    "ncharDescription": "2",
+    "ncharGSTINNO": "4",
+    "ncharPONo": "6",
+    "ncharState": "2",
+    "ncharStateCode": "3",
+    "ncharTo": "1",
+    "ncharTotalQty": "7",
+    "ncharValueOfGoods": "8",
+    "ynDeleted": false,
+    "ynReverseChargeApplicable": false
+}
+
+http://127.0.0.1:5555/editTblJobWork
+{
+    "GatePassId": 2,
+    "dtChallanDate": null,
+    "dtDateOfModification": "15-06-2021 13:10:10",
+    "dtPreparationDateTime": null,
+    "id": 2,
+    "intAuthorisedUser": 1,
+    "ncharChallanNo": "5",
+    "ncharDescription": "2",
+    "ncharGSTINNO": "4",
+    "ncharPONo": "6",
+    "ncharState": "2",
+    "ncharStateCode": "3",
+    "ncharTo": "1",
+    "ncharTotalQty": "7",
+    "ncharValueOfGoods": "8",
+    "ynDeleted": false,
+    "ynReverseChargeApplicable": false
+}
+
+http://127.0.0.1:5555/deleteTblJobWork
+{
+    "id": 2
+}
+
+http://127.0.0.1:5555/GetTblJobWorkByGatePassId
+{   "GatePassId": 2
+}
+
+http://127.0.0.1:5555/CreateJobWorkByGatePassId
+{   "GatePassId": 2
+}
+
+# ------------------------tblJobWorkDetails--------------------------------------------------------
+
+http://127.0.0.1:5555/GetTblJobWorkDetails
+
+http://127.0.0.1:5555/GetTblJobWorkDetailsById
+{
+    "id": 1
+}
+
+http://127.0.0.1:5555/saveTblJobWorkDetails
+{
+    "JobWorkId": 1,
+    "dtDateOfModification": null,
+    "intSrNo": 1,
+    "ncharDescription": "6",
+    "ncharJobDescription": "2",
+    "ncharNatureOfProcess": "4",
+    "ncharQty": "5",
+    "nvharHSN_SAC_Code": "3",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editTblJobWorkDetails
+{
+    "JobWorkId": 1,
+    "dtDateOfModification": "15-06-2021 13:10:10",
+    "id": 2,
+    "intSrNo": 1,
+    "ncharDescription": "6",
+    "ncharJobDescription": "2",
+    "ncharNatureOfProcess": "4",
+    "ncharQty": "5",
+    "nvharHSN_SAC_Code": "3",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/deleteTblJobWorkDetails
+{
+    "id": 2
+}
+
+http://127.0.0.1:5555/GetTblJobWorkDetailsByJobWorkId
+{
+    "JobWorkId": 17
+}
+
+# ------------------------tblJobWorkProcess--------------------------------------------------------
+
+http://127.0.0.1:5555/GetTblJobWorkProcess
+
+http://127.0.0.1:5555/GetTblJobWorkProcessById
+{
+    "id": 1
+}
+
+http://127.0.0.1:5555/GetTblJobWorkProcessByJobWorkId
+{
+  
+    "JobWorkId": 1
+
+}
+
+http://127.0.0.1:5555/saveTblJobWorkProcess
+{
+    "JobWorkId": 1,
+    "dtDateOfModification": null,
+    "dtMaterialDiscDate": "15-06-2021 13:10:10",
+    "dtWastGeneratedDate": "15-06-2021 13:10:10",
+    "intProcessorId": 1,
+    "ncharDescription": "2",
+    "ncharMaterialDiscChallanNo": "2",
+    "ncharMaterialDiscQty": "3",
+    "ncharNameOfFactory": "8",
+    "ncharPlace": "7",
+    "ncharWastGeneratedChallanNo": "4",
+    "ncharWastGeneratedQty": "6",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editTblJobWorkProcess
+{
+    "JobWorkId": 1,
+    "dtDateOfModification": "15-06-2021 13:10:10",
+    "dtMaterialDiscDate": "15-06-2021 13:10:10",
+    "dtWastGeneratedDate": "15-06-2021 13:10:10",
+    "id": 2,
+    "intProcessorId": 1,
+    "ncharDescription": "2",
+    "ncharMaterialDiscChallanNo": "2",
+    "ncharMaterialDiscQty": "3",
+    "ncharNameOfFactory": "8",
+    "ncharPlace": "7",
+    "ncharWastGeneratedChallanNo": "4",
+    "ncharWastGeneratedQty": "6",
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/deleteTblJobWorkProcess
+{
+    "id": 2
+}
+
+
+# ------------------------tblGatePassAttatchment--------------------------------------------------------
+
+
+http://127.0.0.1:5555/GetGatePassAttatchment
+
+http://127.0.0.1:5555/GetGatePassAttatchmentById
+{
+    "id": 1
+}
+
+
+http://127.0.0.1:5555/saveGetGatePassAttatchment
+{
+    "GatePassId": 1,    
+    "imgAttatchment": "1",
+    "ncharFileName": "1",
+    "ncharDescription": "6",
+    "dtDateOfModification": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/editGetGatePassAttatchment
+{
+    "GatePassId": 1,
+    "dtDateOfModification": "15-06-2021 13:10:10",
+    "imgAttatchment": "1",
+    "dtWastGeneratedDate": "15-06-2021 13:10:10",
+    "id": 1,
+    "ncharFileName": "1",
+    "ncharDescription": "6",
+    "dtDateOfModification": null,
+    "ynDeleted": false
+}
+
+http://127.0.0.1:5555/deleteGetGatePassAttatchment
+{
+    "id": 2
+}
+
+http://127.0.0.1:5555/GetGatePassAttatchmentByGatePassId
+{
+    "GatePassId": 1
+}

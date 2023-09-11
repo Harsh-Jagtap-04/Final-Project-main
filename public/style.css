@@ -1,0 +1,64 @@
+
+.form-indicator
+{
+    max-width: 600px;
+}
+.form-indicator .label
+{
+    text-decoration: none;
+}
+.sitebar_body
+{
+    display: flex;
+}
+.sitebar_body .sidebar
+{
+    margin: 0 !important;
+    padding-top: 10px !important;
+    position: relative !important;
+}
+.sitebar_body .main-content
+{
+    margin: 0 !important;
+    width: 100 !important;
+}
+
+.add-user-form input, .add-user-form textarea
+{
+    border: 1px solid #444;
+}
+.add-user-form input::placeholder,
+.add-user-form textarea::placeholder
+{
+    font-size: 16px;
+}
+
+.add-user-form
+{
+    margin: auto !important;
+    max-width: 800px;
+    padding: 20px 40px !important;
+    border: 1px solid #444 !important;
+    border-radius: 9px !important;
+}
+
+
+.navbar
+{
+    z-index: 2 !important;
+}
+
+.navbar img
+{
+    border-radius: 7px !important;
+    height: 75px !important;
+    width: 75px !important;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+.navbar .logotxt p
+{
+    line-height: 24px !important;
+    font-size: 15px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
